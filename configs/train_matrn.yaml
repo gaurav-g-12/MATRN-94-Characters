@@ -1,34 +1,39 @@
 global:
-  name: train-matrn
+  name: train-matrn-finetune-HPC-vision-5more 
   phase: train
   stage: train-super
-  workdir: results
+  workdir: workdir_Final_HPC
   seed: ~
  
 dataset:
   train: {
-    roots: ['data/training/MJ/MJ_train/',
-            'data/training/MJ/MJ_test/',
-            'data/training/MJ/MJ_valid/',
+    roots: [data/training/MJ/train/', 
+            'data/training/MJ/test/', 
+            'data/training/MJ/val/', 
             'data/training/ST'],
     batch_size: 384
   }
   test: {
-    roots: ['data/evaluation/IIIT5k_3000',
-            'data/evaluation/SVT',
-            'data/evaluation/SVTP',
-            'data/evaluation/IC13_857',
-            'data/evaluation/IC15_1811',
-            'data/evaluation/CUTE80'],
+    roots: ['data/test/IIIT5k', 
+            'data/test/SVT', 
+            'data/test/SVTP',
+            'data/test/IC13_857',
+            'data/test/IC15_1811',
+            'data/test/CUTE80'],
     batch_size: 384
   }
   valid: {
-    roots: ['data/validation'],
+    roots: ['data/test/IC15_1811',
+            'data/test/CUTE80'],
     batch_size: 384
   }
+  charset_path: data/charset_94.txt
+  max_length: 35
   data_aug: True
+  case_sensitive: True
+  eval_case_sensitive: True
   multiscales: False
-  num_workers: 14
+  num_workers: 50
 
 training:
   epochs: 10
@@ -57,21 +62,21 @@ model:
   ensemble: ''
   use_vision: False
   vision: {
-    checkpoint: 'results/pretrain/pretrain-vision-model/best-pretrain-vision-model.pth',
+    checkpoint: workdir/pretrain-vision-model/pretrain-vision-model.pth,
     loss_weight: 1.,
     attention: 'position',
     backbone: 'transformer',
     backbone_ln: 3,
   }
   language: {
-    checkpoint:  'results/pretrain/pretrain-language-model/pretrain-language-model.pth',
+    checkpoint: /workdir/pretrain-language-model/pretrain-language-model.pth,
     num_layers: 4,
     loss_weight: 1.,
     detach: True,
     use_self_attn: False
   }
   alignment: {
-    checkpoint: ~,
+    checkpoint: ,
     num_layers: 2,
     loss_weight: 1.,
     use_self_attn: False,
