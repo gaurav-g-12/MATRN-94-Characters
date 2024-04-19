@@ -6,7 +6,7 @@ Following are the model configaration:
 - Trained on ST and MJ with 94 characters containing lower, upper and sepcial characters. 
 - Maximum length of the label is 35
 - The language model is trained for special chacters as well
-- The dataset for Language Model can be found here : [WikiText](https://drive.google.com/file/d/1Y3uO53lAMIt7OK99op0c4Z0hpYYwUdZB/view?usp=share_link)
+- The dataset for Language Model can be found here : [WikiText](https://drive.google.com/drive/u/1/folders/1rI59lwSSz0im2jPDmPFIWtb0-x-VL3bj)
 - This dataset is a modified version of WikiText with 2M added words with special characters. It contains 50% Lowercase, 35% Capitalized and 15% Uppercase.
 - Change the paths in train_matrn_94.yaml for retraining 
 - Link : [Checkpoint for Vision, Language and Alignment model](https://drive.google.com/drive/u/1/folders/1Yv2bzkm72Vl6vHawBxbZ0lYjbin7kZ5d)
