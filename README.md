@@ -1,11 +1,15 @@
 # Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features (ECCV 2022)
 
-| [paper](https://arxiv.org/pdf/2111.15263) | [slide](https://www.dropbox.com/s/idd21hlc2v7e72h/MATRN_PPT_v2.pdf?dl=0) | [poster](https://www.dropbox.com/s/8iug3wnon1aarwk/6583-poster.pdf?dl=0) | 
+This repo contains train files of ABINet model on 94 characters. The pretrained and finetuned model weights are provided below. 
 
-
-Official PyTorch implementation for Multi-modal Text Recognition Networks: Interactive Enhancements between Visual and Semantic Features (MATRN) in [ECCV 2022](https://eccv2022.ecva.net/).
-
-**[Byeonghu Na](https://github.com/byeonghu-na), [Yoonsik Kim](https://github.com/terryoo), and [Sungrae Park](https://github.com/sungraepark)**
+Following are the model configaration:
+- Trained on ST and MJ with 94 characters containing lower, upper and sepcial characters. 
+- Maximum length of the label is 35
+- The language model is trained for special chacters as well
+- The dataset for Language Model can be found here : [WikiText](https://drive.google.com/file/d/1Y3uO53lAMIt7OK99op0c4Z0hpYYwUdZB/view?usp=share_link)
+- This dataset is a modified version of WikiText with 2M added words with special characters. It contains 50% Lowercase, 35% Capitalized and 15% Uppercase.
+- Change the paths in train_matrn_94.yaml for retraining 
+- Link : [Checkpoint for Vision, Language and Alignment model](https://drive.google.com/drive/u/1/folders/1Yv2bzkm72Vl6vHawBxbZ0lYjbin7kZ5d)
 
 This paper introduces a novel method, called Multi-modAl Text Recognition Network (MATRN), that enables interactions between visual and semantic features for better recognition performances.
 
